@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title || "Auth Todo App" %></title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray text-gray-800 min-h-screen flex flex-col">
+    <!-- navbar -->
+    <header class="bg-white shadow">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- logo -->
+            <h1 class="text-xl font-bold text-gray-800">
+                <a href="/" class="hover:text-gray-600 transition">Todo App</a>
+            </h1>
+
+            <!-- nav -->
+             <nav class="flex items-center gap-4 text-sm font-medium">
+                <% if (locals.user) { %>
+                    <span class="text-gray-800">
+                        Hi, <strong><%= user.username %></strong>
+                    </span>
+
+                    <a href="/todos" class="text-gray-800 hover:text-gray-600 transition">
+                        My Todos
+                    </a>
+
+                    <a href="/login" class="text-gray-800 hover:text-gray-600 transition">
+                        Logout
+                    </a>
+                <% } else { %>
+                    <a href="/login" class="text-gray-800 hover:text-gray-600 transition">
+                        Login
+                    </a>
+
+                    <a href="/register" class="text-gray-800 hover:text-gray-600 transition">
+                        Register
+                    </a>
+                <% }; %>
+             </nav>
+        </div>
+    </header>
+
+    <!-- main content -->
+    <main class="max-w-4xl mx-auto px-6 py-8 flex-1">
+
+    
